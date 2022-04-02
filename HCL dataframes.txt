@@ -1,0 +1,25 @@
+In Pandas, when you define a function that has IF/ELSE conditions, you have to use apply or lambda
+
+They are not supported in HCL data frame. However, with np.vectorize you can easily use complex functions with HCL data frames
+
+This is an example of how it can be done, and you can use the same function with Pandas and HCL data frames
+
+
+
+import numpy as np
+
+#define a function with IF/ELSe
+
+def test1(a,b):
+    if a == 25:
+        return b
+    else:
+        return "  "
+
+# use np.vectorize and create a second function
+test2 = np.vectorize(test1)
+
+# call the vectorized function passing the arguments
+df["New3"] = test2(a=df["Age"], b=df["Name"])
+df["New3"] = test2(df["Age"], df["Name"])
+df.head()
