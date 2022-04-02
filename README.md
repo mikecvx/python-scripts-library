@@ -1,3 +1,3 @@
 # python-scripts-library
 
-These scripts are used to interact with Highbond
+These scripts are used to interact with Highbond.
